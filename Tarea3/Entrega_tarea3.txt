@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/54109617/implementing-dropout-from-scratch
