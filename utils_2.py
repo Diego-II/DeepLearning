@@ -156,11 +156,11 @@ def train_for_classification_with_sam(net, train_loader, test_loader, optimizer,
                 loss /= (N + 1)
 
             loss.backward(retain_graph=True)
-            optimizer.first_step(zero_grad=True)
+            optimizer.first_step()
             
             # second forward-backward pass
-            loss.backward(retain_graph=True)
-            optimizer.second_step(zero_grad=True)
+            criterion(Y_logits, Y).backward(retain_graph=True)
+            optimizer.second_step()
 
             # loss
             items = min(total_train, (i+1) * train_loader.batch_size)
