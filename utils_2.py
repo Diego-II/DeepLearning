@@ -155,7 +155,7 @@ def train_for_classification_with_sam(net, train_loader, test_loader, optimizer,
                     loss += criterion(aux_logits, Y)
                 loss /= (N + 1)
 
-            loss.backward()
+            loss.backward(retain_graph=True)
             optimizer.first_step(zero_grad=True)
             
             # second forward-backward pass
